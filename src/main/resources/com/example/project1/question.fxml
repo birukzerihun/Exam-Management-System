@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project1.QuestionController">
+   <children>
+      <TextField fx:id="tfqua" layoutX="54.0" layoutY="69.0" prefHeight="25.0" prefWidth="421.0" promptText="Enter Your Question Here" />
+      <TextField fx:id="op1" layoutX="54.0" layoutY="119.0" prefHeight="25.0" prefWidth="262.0" promptText="option one" />
+      <TextField fx:id="op2" layoutX="54.0" layoutY="160.0" prefHeight="25.0" prefWidth="262.0" promptText="option two" />
+      <TextField fx:id="op3" layoutX="54.0" layoutY="210.0" prefHeight="25.0" prefWidth="262.0" promptText="option three" />
+      <TextField fx:id="op4" layoutX="54.0" layoutY="256.0" prefHeight="25.0" prefWidth="262.0" promptText="option four" />
+      <Button fx:id="btnback" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionhandlebutton" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btninsert" layoutX="422.0" layoutY="289.0" mnemonicParsing="false" onAction="#actionhandlebutton" prefHeight="30.0" prefWidth="133.0" text="Insert">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btndelete" layoutX="424.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionhandlebutton" prefHeight="30.0" prefWidth="133.0" text="Delete">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfans" layoutX="427.0" layoutY="14.0" promptText="Answer" />
+      <TextField fx:id="tfidQ" layoutX="14.0" layoutY="14.0" promptText="Question id" />
+   </children>
+</AnchorPane>
