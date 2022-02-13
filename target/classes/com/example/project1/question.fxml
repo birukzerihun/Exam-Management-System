@@ -12,7 +12,7 @@
       <TextField fx:id="op2" layoutX="54.0" layoutY="160.0" prefHeight="25.0" prefWidth="262.0" promptText="option two" />
       <TextField fx:id="op3" layoutX="54.0" layoutY="210.0" prefHeight="25.0" prefWidth="262.0" promptText="option three" />
       <TextField fx:id="op4" layoutX="54.0" layoutY="256.0" prefHeight="25.0" prefWidth="262.0" promptText="option four" />
-      <Button fx:id="btnback" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionhandlebutton" text="Back">
+      <Button fx:id="btnexit" layoutX="54.0" layoutY="347.0" mnemonicParsing="false" onAction="#actionhandlebutton" text="Exit">
          <font>
             <Font size="14.0" />
          </font>
