@@ -22,11 +22,17 @@ public class frontController {
 
 
 
-    public void studenthandle(ActionEvent event) {
+    public void studenthandle(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("studentlogin.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+        Stage stage=new Stage();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     public void teacherhandle(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("question.fxml"));
+        FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("teacherlogin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 450);
         Stage stage=new Stage();
         stage.setScene(scene);
@@ -34,5 +40,8 @@ public class frontController {
     }
 
     public void exithandle(ActionEvent event) {
+        Stage stage = (Stage) btnexit.getScene().getWindow();
+        stage.close();
+
     }
 }

@@ -3,12 +3,17 @@ package com.example.project1;
 import com.mysql.cj.xdevapi.PreparableStatement;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
+
 import javax.swing.JOptionPane;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.logging.Logger;
 
@@ -33,15 +38,24 @@ public class TeacherloginController  {
 
 
     @FXML
-    void loginhandle(ActionEvent event) throws SQLException {
+    void loginhandle(ActionEvent event) throws SQLException, IOException {
 
         String uname= tfusername.getText();
         String pass= tfpassword.getText();
 
-        if(uname.equals("") && pass.equals("")){
-            System.out.println("incorect username or password");
+        if(uname.equals("") || pass.equals("")){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Login Failed");
+            alert.setHeaderText("Please enter your your username and password");
+            alert.show();
         }
         else{
+            FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("question.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 450);
+            Stage stage=new Stage();
+            stage.setScene(scene);
+            stage.show();
+
             Connection con = getConnection();
 
             st=con.prepareStatement("select * from teachers where username=? and password=?");
@@ -51,11 +65,14 @@ public class TeacherloginController  {
             rs= st.executeQuery();
             if(rs.next()){
               // JOptionPane.showMessageDialog("successfully login");
-                System.out.println("login successfull");
+
         }
             else{
               // JOptionPane.showMessageDialog("login failed");
-                System.out.println("login failed");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Login Faild");
+                alert.setHeaderText("Incorect username or password");
+                alert.show();
                 tfusername.setText("");
                 tfpassword.setText("");
                 tfusername.requestFocus();

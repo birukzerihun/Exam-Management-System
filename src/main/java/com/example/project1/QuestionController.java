@@ -2,9 +2,14 @@ package com.example.project1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -12,7 +17,7 @@ import java.sql.Statement;
 
 public class QuestionController {
     @FXML
-    private Button btnback;
+    private Button btnexit;
 
     @FXML
     private Button btninsert;
@@ -49,6 +54,10 @@ public class QuestionController {
    if (event.getSource()==btndelete){
        deleteButton();
    }
+   if(event.getSource()==btnexit){
+       Stage stage = (Stage) btnexit.getScene().getWindow();
+       stage.close();
+   }
     }
     public Connection getConnection(){
         Connection conn;
@@ -64,12 +73,21 @@ public class QuestionController {
         String query = "INSERT INTO questions VALUES ('"+ tfidQ.getText()  +"','"+ tfqua.getText() +"','" + op1.getText() + "','" + op2.getText() + "','" + op3.getText() + "','"
                 + op4.getText() + "','" + tfans.getText() + "')";
         executeQuery(query);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Inserted");
+        alert.setHeaderText("your question is successfully inserted");
+        alert.show();
         // showBooks();
     }
     private void deleteButton(){
         String query = "DELETE FROM questions WHERE Qid =" + tfidQ.getText() + "";
         executeQuery(query);
         // showBooks();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Deleted");
+        alert.setHeaderText("the question  has been deleted");
+        alert.show();
     }
     private void executeQuery(String query) {
         Connection conn = getConnection();

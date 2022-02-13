@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static sun.swing.SwingUtilities2.submit;
+//import static sun.swing.SwingUtilities2.submit;
 
 public class StudentTryController implements Initializable {
 
@@ -54,7 +54,7 @@ public class StudentTryController implements Initializable {
     void nexthandler(ActionEvent event) {
 
 
-        Tlabel.setText("00,00,00");
+       // Tlabel.setText("00,00,00");
 
 
         if (!rb1.isSelected() && !rb2.isSelected() && !rb3.isSelected() && !rb4.isSelected()) {
@@ -157,7 +157,7 @@ public class StudentTryController implements Initializable {
                             Tlabel.setText("00:00:00");
 
                             // saveing data to database
-                            submit(null);
+                           // submit(null);
                             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                             alert.setTitle("Unauthorised User");
                             alert.setHeaderText("Incorect  Username or Password");

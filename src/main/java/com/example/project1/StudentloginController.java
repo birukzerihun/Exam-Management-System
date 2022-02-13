@@ -52,7 +52,7 @@ public class StudentloginController {
 
             rs= st.executeQuery();
             if(rs.next()){
-                FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("studentquestion.fxml"));
+                FXMLLoader fxmlLoader=new FXMLLoader(Main.class.getResource("studentquestionTry.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 800, 600);
                 Stage stage=new Stage();
                 stage.setScene(scene);
